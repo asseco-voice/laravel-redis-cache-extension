@@ -13,7 +13,7 @@ class FlushRedis extends Command
      *
      * @var string
      */
-    protected $signature = 'asseco-voice:flush-redis {pattern=*}';
+    protected $signature = "asseco-voice:flush-redis {pattern?}";
 
     /**
      * The console command description.
@@ -31,20 +31,41 @@ DESC;
      */
     public function handle()
     {
-        if(!(Cache::class instanceof PatternDelete)){
+        if (!(Cache::store()->getStore() instanceof PatternDelete)) {
             $this->error("Cache class doesn't implement PatternDelete interface. Are you using Redis as your cache driver?");
             return;
         }
 
         if (env('APP_ENV') === 'production') {
-            if($this->confirm('App is in production. Do you wish to continue?')){
-
+            if ($this->confirm('App is in production. Do you wish to continue?')) {
+                $this->flush();
             }
+
+            return;
         }
 
-        $name = $this->anticipate('What is your name?', ['Taylor', 'Dayle']);
+        $this->flush();
+    }
 
+    protected function flush(): void
+    {
+        $pattern = $this->argument('pattern') ?: '*';
 
-        Cache::flush();
+        $keys = Cache::keys($pattern);
+
+        if (empty($keys)) {
+            $this->info("No keys match the following pattern.");
+            return;
+        }
+
+        $this->info("The following pattern will delete these keys:");
+        $this->info(print_r($keys, true));
+
+        if ($this->confirm('Continue?')) {
+            Cache::forgetByPattern($pattern);
+            $this->info("Deleted.");
+        } else {
+            $this->info("Aborted.");
+        }
     }
 }

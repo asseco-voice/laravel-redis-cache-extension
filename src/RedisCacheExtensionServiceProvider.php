@@ -2,7 +2,6 @@
 
 namespace Voice\RedisCacheExtension;
 
-use Illuminate\Cache\CacheManager;
 use Illuminate\Support\ServiceProvider;
 use Voice\RedisCacheExtension\App\Console\Commands\FlushRedis;
 
@@ -21,7 +20,7 @@ class RedisCacheExtensionServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->app->singleton('cache', function ($app) {
+        $this->app->extend('cache', function ($service, $app) {
             return new CacheManager($app);
         });
 

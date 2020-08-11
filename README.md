@@ -11,4 +11,14 @@ as a Laravel service provider.
 
 ## Usage
 
-...
+Since this is for Redis driver only, the command will fail if you
+don't have ``CACHE_DRIVER=redis`` in your `.env` file.
+
+Running the command ``php artisan asseco-voice:flush-redis`` will 
+trigger cache flush for all items in the cache (you will be asked
+for the confirmation), however the command takes pattern as argument.
+
+When using Redis wildcard characters, argument will need to be 
+enclosed within quotation marks:
+
+``php artisan asseco-voice:flush-redis "*_item"``
