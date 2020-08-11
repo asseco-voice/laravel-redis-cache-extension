@@ -1,0 +1,29 @@
+{
+    "name": "asseco-voice/laravel-redis-cache-extension",
+    "description": "Laravel Redis cache extension",
+    "keywords": [
+        "php",
+        "laravel"
+    ],
+    "license": "MIT",
+    "require": {
+        "php": "^7.4",
+        "illuminate/cache": "^7.24"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.5",
+        "mockery/mockery": "^1.3.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Voice\\RedisCacheExtension\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Voice\\RedisCacheExtension\\RedisCacheExtensionServiceProvider"
+            ]
+        }
+    }
+}
