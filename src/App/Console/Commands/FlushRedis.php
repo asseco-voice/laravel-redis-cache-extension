@@ -4,6 +4,7 @@ namespace Voice\RedisCacheExtension\App\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Config;
 use Voice\RedisCacheExtension\PatternDelete;
 
 class FlushRedis extends Command
@@ -49,8 +50,9 @@ DESC;
 
     protected function flush(): void
     {
-        $pattern = $this->argument('pattern') ?: '*';
-
+        // Adding wildcard at front to ignore redis prefix
+        $pattern = "*" . $this->argument('pattern') ?: '*';
+        $prefix = Config::get('database.redis.options.prefix') . Cache::getStore()->getPrefix();
         $keys = Cache::keys($pattern);
 
         if (empty($keys)) {
@@ -59,7 +61,12 @@ DESC;
         }
 
         $this->info("The following pattern will delete these keys:");
-        $this->info(print_r($keys, true));
+
+        $formattedKeys = array_map(function ($key) use ($prefix) {
+            return str_replace($prefix, '', $key);
+        }, $keys);
+
+        $this->info(print_r($formattedKeys, true));
 
         if ($this->confirm('Continue?')) {
             Cache::forgetByPattern($pattern);
