@@ -51,7 +51,7 @@ DESC;
     protected function flush(): void
     {
         // Adding wildcard at front to ignore redis prefix
-        $pattern = "*" . $this->argument('pattern') ?: '*';
+        $pattern = $this->argument('pattern') ? ("*" . $this->argument('pattern')) : '*';
         $prefix = Config::get('database.redis.options.prefix') . Cache::getStore()->getPrefix();
         $keys = Cache::keys($pattern);
 
