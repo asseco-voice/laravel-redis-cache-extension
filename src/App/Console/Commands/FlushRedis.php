@@ -37,7 +37,7 @@ DESC;
             return;
         }
 
-        if (env('APP_ENV') === 'production') {
+        if (Config::get('app.env') === 'production') {
             if ($this->confirm('App is in production. Do you wish to continue?')) {
                 $this->flush();
             }
