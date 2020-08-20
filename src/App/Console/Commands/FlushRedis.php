@@ -66,6 +66,8 @@ DESC;
             return str_replace($prefix, '', $key);
         }, $keys);
 
+        sort($formattedKeys);
+
         $this->info(print_r($formattedKeys, true));
 
         if ($this->confirm('Continue?')) {
