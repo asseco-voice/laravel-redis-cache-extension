@@ -16,7 +16,7 @@ class RedisStore extends LaravelRedisStore implements PatternDelete
         foreach ($this->keys($pattern) as $item) {
             $item = explode(':', $item);
 
-            if(count($item) < 2){
+            if (count($item) < 2) {
                 continue;
             }
 
