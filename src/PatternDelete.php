@@ -5,7 +5,7 @@ namespace Voice\RedisCacheExtension;
 interface PatternDelete
 {
     /**
-     * Return keys by pattern
+     * Return keys by pattern.
      *
      * @param string $pattern
      * @return mixed
@@ -13,7 +13,7 @@ interface PatternDelete
     public function keys(string $pattern = '*'): array;
 
     /**
-     * Forget keys by pattern
+     * Forget keys by pattern.
      *
      * @param string $pattern
      * @return mixed
