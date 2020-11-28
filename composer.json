@@ -16,13 +16,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Voice\\RedisCacheExtension\\": "src/"
+            "Asseco\\RedisCacheExtension\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Voice\\RedisCacheExtension\\RedisCacheExtensionServiceProvider"
+                "Asseco\\RedisCacheExtension\\RedisCacheExtensionServiceProvider"
             ]
         }
     }
