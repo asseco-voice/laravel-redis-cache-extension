@@ -2,8 +2,8 @@
 
 namespace Asseco\RedisCacheExtension;
 
-use Illuminate\Support\ServiceProvider;
 use Asseco\RedisCacheExtension\App\Console\Commands\FlushRedis;
+use Illuminate\Support\ServiceProvider;
 
 class RedisCacheExtensionServiceProvider extends ServiceProvider
 {
