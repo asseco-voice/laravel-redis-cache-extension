@@ -1,9 +1,9 @@
 <?php
 
-namespace Voice\RedisCacheExtension;
+namespace Asseco\RedisCacheExtension;
 
+use Asseco\RedisCacheExtension\App\Console\Commands\FlushRedis;
 use Illuminate\Support\ServiceProvider;
-use Voice\RedisCacheExtension\App\Console\Commands\FlushRedis;
 
 class RedisCacheExtensionServiceProvider extends ServiceProvider
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Voice\RedisCacheExtension;
+namespace Asseco\RedisCacheExtension;
 
 use Illuminate\Cache\CacheManager as LaravelCacheManager;
 
