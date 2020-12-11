@@ -14,7 +14,7 @@ class FlushRedis extends Command
      *
      * @var string
      */
-    protected $signature = 'voice:flush-redis {pattern?}';
+    protected $signature = 'asseco:flush-redis {pattern?}';
 
     /**
      * The console command description.
