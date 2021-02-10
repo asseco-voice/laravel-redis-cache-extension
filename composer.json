@@ -11,12 +11,19 @@
         "illuminate/cache": "^8.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "^9.0",
-        "mockery/mockery": "^1.3.1"
+        "phpunit/phpunit": "^9.4",
+        "mockery/mockery": "^1.3.1",
+        "fakerphp/faker": "^1.9.1",
+        "orchestra/testbench": "^6.0"
     },
     "autoload": {
         "psr-4": {
             "Asseco\\RedisCacheExtension\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Asseco\\RedisCacheExtension\\Tests\\": "tests/"
         }
     },
     "extra": {
