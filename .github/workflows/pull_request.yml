@@ -7,7 +7,7 @@ on:
 jobs:
   build:
 
-    runs-on: Ubuntu-20.04
+    runs-on: ubuntu-20.04
 
     steps:
       - uses: actions/checkout@v2
@@ -44,5 +44,6 @@ jobs:
       - name: PHP STatic ANalyser (phpstan)
         uses: chindit/actions-phpstan@1.0.1
         with:
+          php-version: '8.0'
           # Arguments to add to PHPStan CLI
           arguments: --level 0 src
