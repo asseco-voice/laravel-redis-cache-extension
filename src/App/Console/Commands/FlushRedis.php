@@ -21,7 +21,7 @@ class FlushRedis extends Command
      *
      * @var string
      */
-    protected $description = <<<DESC
+    protected $description = <<<'DESC'
 This command will flush Laravel Redis cache by provided pattern. If no pattern is provided, '*' will be used.
 DESC;
 

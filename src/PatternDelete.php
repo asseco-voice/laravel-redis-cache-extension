@@ -7,7 +7,7 @@ interface PatternDelete
     /**
      * Return keys by pattern.
      *
-     * @param string $pattern
+     * @param  string  $pattern
      * @return mixed
      */
     public function keys(string $pattern = '*'): array;
@@ -15,7 +15,7 @@ interface PatternDelete
     /**
      * Forget keys by pattern.
      *
-     * @param string $pattern
+     * @param  string  $pattern
      * @return mixed
      */
     public function forgetByPattern(string $pattern): bool;
