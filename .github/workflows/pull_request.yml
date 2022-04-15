@@ -41,10 +41,9 @@ jobs:
         run:
           vendor/phpunit/phpunit/phpunit
 
-
       - name: PHP STatic ANalyser (phpstan)
         uses: php-actions/phpstan@v3
         with:
-          path: '/src'
+          path: 'src'
           php_version: '8.0'
           level: 0
