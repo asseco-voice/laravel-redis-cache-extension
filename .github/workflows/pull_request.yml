@@ -43,8 +43,7 @@ jobs:
 
 
       - name: PHP STatic ANalyser (phpstan)
-#        uses: chindit/actions-phpstan@1.0.1
-      - uses: php-actions/phpstan@v3
+        uses: php-actions/phpstan@v3
         with:
           path: '/src'
           php_version: '8.0'
